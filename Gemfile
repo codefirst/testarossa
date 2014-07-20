@@ -12,6 +12,9 @@ group :production do
 end
 
 gem 'slim-rails'
+group :development do
+  gem 'html2slim'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -52,3 +55,9 @@ gem 'spring',        group: :development
 group :test do
   gem 'rspec-rails'
 end
+
+gem 'settingslogic'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-github'
+
