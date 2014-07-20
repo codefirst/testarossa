@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20140720100152) do
   end
 
   create_table "test_case_step_results", force: true do |t|
+    t.integer  "test_result_id"
+    t.integer  "test_case_step_id"
     t.string   "title"
     t.text     "description"
     t.integer  "state"
@@ -30,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140720100152) do
   end
 
   create_table "test_case_steps", force: true do |t|
+    t.integer  "test_case_id"
     t.string   "title"
     t.text     "description"
     t.integer  "sort"
@@ -38,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140720100152) do
   end
 
   create_table "test_cases", force: true do |t|
+    t.integer  "project_id"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
@@ -45,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140720100152) do
   end
 
   create_table "test_results", force: true do |t|
+    t.integer  "test_case_id"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
