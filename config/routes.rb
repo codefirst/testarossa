@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :test_cases
+
   resources :projects
 
   get 'top/index'
