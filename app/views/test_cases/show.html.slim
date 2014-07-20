@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @test_case.title
+p
+  strong Description:
+  = @test_case.description
+
+= link_to 'Edit', edit_test_case_path(@test_case)
+'|
+= link_to 'Back', test_cases_path
