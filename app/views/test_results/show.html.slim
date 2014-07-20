@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @test_result.title
+p
+  strong Description:
+  = @test_result.description
+
+= link_to 'Edit', edit_test_result_path(@test_result)
+'|
+= link_to 'Back', test_results_path
