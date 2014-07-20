@@ -1,10 +1,27 @@
 doctype html
 html
   head
-    title
-      | Testarossa
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    title Testarossa
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
   body
-    = yield
+    nav.navbar.navbar-fixed-top.navbar-inverse role='navigation'
+      .container
+        .navbar-header
+          = link_to image_tag(asset_path('sunline-logo-white.png')), {controller: 'top'}, class: 'brand'
+        .collapse.nav-collapse
+        - if user_signed_in?
+          ul.nav.nav-pills
+            li= link_to "Projects", projects_path
+            .dropdown.pull-right
+              a.dropdown-toggle data-toggle='dropdown' role='button' href="#" Account
+              ul.dropdown-menu role='menu'
+                li role='presentation'
+                  = link_to t(:button_sign_out), destroy_user_session_path, class: 'icon-signout', method: :delete
+
+    .container
+      = yield
+
+      footer
+        p &copy; codefirst.org
