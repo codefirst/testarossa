@@ -1,0 +1,29 @@
+h1 Listing test_case_step_results
+
+table
+  thead
+    tr
+      th Title
+      th Description
+      th State
+      th Result
+      th Sort
+      th
+      th
+      th
+
+  tbody
+    - @test_case_step_results.each do |test_case_step_result|
+      tr
+        td = test_case_step_result.title
+        td = test_case_step_result.description
+        td = test_case_step_result.state
+        td = test_case_step_result.result
+        td = test_case_step_result.sort
+        td = link_to 'Show', test_case_step_result
+        td = link_to 'Edit', edit_test_case_step_result_path(test_case_step_result)
+        td = link_to 'Destroy', test_case_step_result, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Test case step result', new_test_case_step_result_path
