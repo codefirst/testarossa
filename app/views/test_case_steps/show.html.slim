@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @test_case_step.title
+p
+  strong Description:
+  = @test_case_step.description
+p
+  strong Sort:
+  = @test_case_step.sort
+
+= link_to 'Edit', edit_test_case_step_path(@test_case_step)
+'|
+= link_to 'Back', test_case_steps_path

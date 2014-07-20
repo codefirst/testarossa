@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :test_case_steps
+
   resources :test_cases
 
   resources :projects
