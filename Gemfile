@@ -12,8 +12,9 @@ group :production do
 end
 
 gem 'slim-rails'
-group :development do
+group :development, :test do
   gem 'html2slim'
+  gem 'quiet_assets'
 end
 
 # Use SCSS for stylesheets
