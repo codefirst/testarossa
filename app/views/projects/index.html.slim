@@ -3,7 +3,6 @@ h1 Listing projects
 table
   thead
     tr
-      th User
       th Name
       th
       th
@@ -12,7 +11,6 @@ table
   tbody
     - @projects.each do |project|
       tr
-        td = project.user_id
         td = project.name
         td = link_to 'Show', project
         td = link_to 'Edit', edit_project_path(project)

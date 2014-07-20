@@ -14,13 +14,10 @@
 ActiveRecord::Schema.define(version: 20140720023242) do
 
   create_table "projects", force: true do |t|
-    t.integer  "user_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "nickname",   null: false
