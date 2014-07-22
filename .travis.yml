@@ -6,3 +6,7 @@ script:
   - bundle exec rake db:migrate
   - bundle exec rspec
 
+notifications:
+  webhooks:
+    secure: "eseVlTEODW0JyoAMnedrHOzpFxUN5AqdHb2iEz478YFlIazN+Ipiv00SLet4lU9kuVNE3C49c/nL9nAuvEVzb/ikJMGWWTYHP7ZWj8eNZV/3J47wdOy5tYpRsM2L5GdTreNWHUnQhEdoG0bxuyRDVZmqLAnYG3BEIVwpurOqqE8="
+
