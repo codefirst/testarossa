@@ -4,7 +4,7 @@ rvm:
 
 script:
   - bundle exec rake db:migrate
-  - bundle exec rspec
+  - bundle exec rake spec
 
 notifications:
   webhooks:

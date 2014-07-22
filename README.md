@@ -43,4 +43,4 @@ Setup test database:
 
 Run tests:
 
-    $ bundle exec rspec
+    $ bundle exec rake spec
