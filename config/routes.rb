@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  resources :test_case_step_results
 
-  resources :test_results
-
-  resources :test_case_steps
-
-  resources :test_cases
-
-  resources :projects
+  resources :projects do
+    resources :test_cases, path: 'tests' do
+      resources :test_case_steps, path: 'steps'
+      resources :test_results, path: 'results' do
+        resources :test_case_step_results, path: 'steps'
+      end
+    end
+  end
 
   get 'top/index'
   root 'top#index'
