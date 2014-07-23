@@ -42,7 +42,7 @@ RSpec.describe TestCaseStepResultsController, :type => :controller do
 
   describe "GET new" do
     it "assigns a new test_case_step_result as @test_case_step_result" do
-      get :new, {}, valid_session
+      get :new, {:project_id => "1", :test_case_id => "2", :test_result_id => "3"}, valid_session
       expect(assigns(:test_case_step_result)).to be_a_new(TestCaseStepResult)
     end
   end

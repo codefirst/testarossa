@@ -4,31 +4,31 @@ RSpec.describe TestResultsController, :type => :routing do
   describe "routing" do
 
     it "routes to #index" do
-      expect(:get => "/test_results").to route_to("test_results#index")
+      expect(:get => "/projects/1/tests/2/results").to route_to("test_results#index", :project_id => "1", :test_case_id => "2")
     end
 
     it "routes to #new" do
-      expect(:get => "/test_results/new").to route_to("test_results#new")
+      expect(:get => "/projects/1/tests/2/results/new").to route_to("test_results#new", :project_id => "1", :test_case_id => "2")
     end
 
     it "routes to #show" do
-      expect(:get => "/test_results/1").to route_to("test_results#show", :id => "1")
+      expect(:get => "/projects/1/tests/2/results/3").to route_to("test_results#show", :project_id => "1", :test_case_id => "2", :id => "3")
     end
 
     it "routes to #edit" do
-      expect(:get => "/test_results/1/edit").to route_to("test_results#edit", :id => "1")
+      expect(:get => "/projects/1/tests/2/results/3/edit").to route_to("test_results#edit", :project_id => "1", :test_case_id => "2", :id => "3")
     end
 
     it "routes to #create" do
-      expect(:post => "/test_results").to route_to("test_results#create")
+      expect(:post => "/projects/1/tests/2/results").to route_to("test_results#create", :project_id => "1", :test_case_id => "2")
     end
 
     it "routes to #update" do
-      expect(:put => "/test_results/1").to route_to("test_results#update", :id => "1")
+      expect(:put => "/projects/1/tests/2/results/3").to route_to("test_results#update", :project_id => "1", :test_case_id => "2", :id => "3")
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/test_results/1").to route_to("test_results#destroy", :id => "1")
+      expect(:delete => "/projects/1/tests/2/results/3").to route_to("test_results#destroy", :project_id => "1", :test_case_id => "2", :id => "3")
     end
 
   end

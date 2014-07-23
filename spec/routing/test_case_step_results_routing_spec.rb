@@ -4,31 +4,31 @@ RSpec.describe TestCaseStepResultsController, :type => :routing do
   describe "routing" do
 
     it "routes to #index" do
-      expect(:get => "/test_case_step_results").to route_to("test_case_step_results#index")
+      expect(:get => "/projects/1/tests/2/results/3/steps").to route_to("test_case_step_results#index", :project_id => "1", :test_case_id => "2", :test_result_id => "3")
     end
 
     it "routes to #new" do
-      expect(:get => "/test_case_step_results/new").to route_to("test_case_step_results#new")
+      expect(:get => "/projects/1/tests/2/results/3/steps/new").to route_to("test_case_step_results#new", :project_id => "1", :test_case_id => "2", :test_result_id => "3")
     end
 
     it "routes to #show" do
-      expect(:get => "/test_case_step_results/1").to route_to("test_case_step_results#show", :id => "1")
+      expect(:get => "/projects/1/tests/2/results/3/steps/4").to route_to("test_case_step_results#show", :project_id => "1", :test_case_id => "2", :test_result_id => "3", :id => "4")
     end
 
     it "routes to #edit" do
-      expect(:get => "/test_case_step_results/1/edit").to route_to("test_case_step_results#edit", :id => "1")
+      expect(:get => "/projects/1/tests/2/results/3/steps/4/edit").to route_to("test_case_step_results#edit", :project_id => "1", :test_case_id => "2", :test_result_id => "3", :id => "4")
     end
 
     it "routes to #create" do
-      expect(:post => "/test_case_step_results").to route_to("test_case_step_results#create")
+      expect(:post => "/projects/1/tests/2/results/3/steps").to route_to("test_case_step_results#create", :project_id => "1", :test_case_id => "2", :test_result_id => "3")
     end
 
     it "routes to #update" do
-      expect(:put => "/test_case_step_results/1").to route_to("test_case_step_results#update", :id => "1")
+      expect(:put => "/projects/1/tests/2/results/3/steps/4").to route_to("test_case_step_results#update", :project_id => "1", :test_case_id => "2", :test_result_id => "3", :id => "4")
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/test_case_step_results/1").to route_to("test_case_step_results#destroy", :id => "1")
+      expect(:delete => "/projects/1/tests/2/results/3/steps/4").to route_to("test_case_step_results#destroy", :project_id => "1", :test_case_id => "2", :test_result_id => "3", :id => "4")
     end
 
   end
