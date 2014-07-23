@@ -5,6 +5,6 @@
       h2 Handling your tests
       = form_tag user_omniauth_authorize_path(Settings.omniauth.provider.to_sym), :method => 'post' do |f|
         button.btn.btn-primary.btn-large
-          i.glyphicon.glyphicon-log-in
+          span.glyphicon.glyphicon-log-in
           = t(:button_sign_in)
 

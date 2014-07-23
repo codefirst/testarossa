@@ -1,9 +1,11 @@
-p#notice = notice
+h2 = @project.name
 
-p
-  strong Name:
-  = @project.name
+.container
+  .row
+     .col-md-9
+     .col-md-3.well
+        ul.side-menu
+          li = link_to 'Show test cases', project_test_cases_path(@project)
+          li = link_to 'Edit project', edit_project_path(@project)
+          li = link_to 'Destroy project', @project, data: {:confirm => 'Are you sure?'}, :method => :delete
 
-= link_to 'Edit', edit_project_path(@project)
-'|
-= link_to 'Back', projects_path

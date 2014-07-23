@@ -1,8 +1,8 @@
-h1 Editing test_case
+h2 Editing test case
 
 == render 'form'
 
-= link_to 'Show', @test_case
+= link_to 'Show', [@project, @test_case]
 '|
-= link_to 'Back', test_cases_path
+= link_to 'Back', project_test_cases_path(@project)
 

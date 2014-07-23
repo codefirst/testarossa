@@ -1,23 +1,12 @@
-h1 Listing test_cases
+h2 Listing test cases
 
-table
-  thead
-    tr
-      th Title
-      th Description
-      th
-      th
-      th
+.row
+   .col-md-9
+      ul
+        - @test_cases.each do |test_case|
+          li = link_to test_case.title, [@project, test_case]
+   .col-md-3.well
+      ul.side-menu
+        li = icon_link_to 'Back to ' + @project.name, project_path(@project), :'arrow-up'
+        li = icon_link_to 'New Test case', new_project_test_case_path, :plus
 
-  tbody
-    - @test_cases.each do |test_case|
-      tr
-        td = test_case.title
-        td = test_case.description
-        td = link_to 'Show', test_case
-        td = link_to 'Edit', edit_test_case_path(test_case)
-        td = link_to 'Destroy', test_case, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Test case', new_test_case_path

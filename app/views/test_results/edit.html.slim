@@ -1,8 +1,8 @@
-h1 Editing test_result
+h2 Editing test_result
 
 == render 'form'
 
-= link_to 'Show', @test_result
+= link_to 'Show', [@project, @test_case, @test_result]
 '|
-= link_to 'Back', test_results_path
+= link_to 'Back', [@project, @test_case]
 

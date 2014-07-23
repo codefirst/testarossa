@@ -1,15 +1,20 @@
-= form_for @test_case do |f|
+= form_for([@project, @test_case], html: { class: 'form-horizontal' }) do |f|
   - if @test_case.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@test_case.errors.count, "error")} prohibited this test_case from being saved:"
+    .alert.alert-danger
+      strong = "#{pluralize(@test_case.errors.count, "error")} prohibited this test_case from being saved:"
       ul
         - @test_case.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .actions = f.submit 'Save'
+  .form-group
+    = f.label :title, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :description, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_area :description, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit 'Save', class: 'btn btn-primary'
+

@@ -1,4 +1,4 @@
-h1 Listing test_results
+h2 Listing test_results
 
 table
   thead
@@ -14,10 +14,10 @@ table
       tr
         td = test_result.title
         td = test_result.description
-        td = link_to 'Show', test_result
-        td = link_to 'Edit', edit_test_result_path(test_result)
-        td = link_to 'Destroy', test_result, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Show', [@project, @test_case, test_result]
+        td = link_to 'Edit', edit_project_test_case_test_result_path(@project, @test_case, test_result)
+        td = link_to 'Destroy', [@project, @test_case, test_result], data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Test result', new_test_result_path
+= link_to 'New Test result', new_project_test_case_test_result_path(@project, @test_case)

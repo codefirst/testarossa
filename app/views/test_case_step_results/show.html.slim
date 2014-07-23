@@ -1,5 +1,3 @@
-p#notice = notice
-
 p
   strong Title:
   = @test_case_step_result.title
@@ -16,6 +14,6 @@ p
   strong Sort:
   = @test_case_step_result.sort
 
-= link_to 'Edit', edit_test_case_step_result_path(@test_case_step_result)
+= link_to 'Edit', edit_project_test_case_test_result_test_case_step_result_path(@project, @test_case, @test_result, @test_case_step_result)
 '|
-= link_to 'Back', test_case_step_results_path
+= link_to 'Back', project_test_case_test_result_test_case_step_results_path(@project, @test_case, @test_result)

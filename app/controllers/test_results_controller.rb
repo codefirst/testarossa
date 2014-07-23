@@ -1,5 +1,7 @@
 class TestResultsController < ApplicationController
   before_action :set_test_result, only: [:show, :edit, :update, :destroy]
+  before_action :set_project
+  before_action :set_test_case
 
   # GET /test_results
   # GET /test_results.json
@@ -28,7 +30,7 @@ class TestResultsController < ApplicationController
 
     respond_to do |format|
       if @test_result.save
-        format.html { redirect_to @test_result, notice: 'Test result was successfully created.' }
+        format.html { redirect_to [@project, @test_case, @test_result], notice: 'Test result was successfully created.' }
         format.json { render :show, status: :created, location: @test_result }
       else
         format.html { render :new }
@@ -70,5 +72,13 @@ class TestResultsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_result_params
       params.require(:test_result).permit(:title, :description)
+    end
+
+    def set_project
+      @project = Project.find(params[:project_id])
+    end
+
+    def set_test_case
+      @test_case = TestCase.find(params[:test_case_id])
     end
 end

@@ -12,7 +12,7 @@ html
     = csrf_meta_tags
   body
     nav.navbar.navbar-fixed-top.navbar-inverse role='navigation'
-      .container-fluid
+      .container
         .navbar-header
           = link_to image_tag(asset_path('logo-white.png')), {controller: 'top'}, class: 'navbar-brand'
         .collapse.navbar-collapse
@@ -25,10 +25,13 @@ html
                 ul.dropdown-menu role='menu'
                   li role='presentation'
                     = link_to destroy_user_session_path, method: :delete do
-                      i.glyphicon.glyphicon-log-out
+                      span.glyphicon.glyphicon-log-out
                       = t(:button_sign_out)
 
     .container
+      - if notice
+        p.alert.alert-success = notice
+
       = yield
 
       footer

@@ -1,12 +1,14 @@
-p#notice = notice
+h2 = @test_case.title + ' / ' + @project.name
 
-p
-  strong Title:
-  = @test_case.title
-p
-  strong Description:
-  = @test_case.description
+.container
+  .row
+     .col-md-9
+        p
+          = @test_case.description
+     .col-md-3.well
+        ul.side-menu
+          li = icon_link_to 'Back to test case', project_test_cases_path(@project), :'arrow-up'
+          li = icon_link_to 'Show test steps', project_test_case_test_case_steps_path(@project, @test_case), :'arrow-down'
+          li = icon_link_to 'Show test results', project_test_case_test_results_path(@project, @test_case), :'arrow-down'
+          li = icon_link_to 'Edit test case', edit_project_test_case_path(@project, @test_case), :pencil
 
-= link_to 'Edit', edit_test_case_path(@test_case)
-'|
-= link_to 'Back', test_cases_path

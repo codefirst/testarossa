@@ -1,5 +1,8 @@
 class TestCaseStepResultsController < ApplicationController
   before_action :set_test_case_step_result, only: [:show, :edit, :update, :destroy]
+  before_action :set_project
+  before_action :set_test_case
+  before_action :set_test_result
 
   # GET /test_case_step_results
   # GET /test_case_step_results.json
@@ -28,7 +31,7 @@ class TestCaseStepResultsController < ApplicationController
 
     respond_to do |format|
       if @test_case_step_result.save
-        format.html { redirect_to @test_case_step_result, notice: 'Test case step result was successfully created.' }
+        format.html { redirect_to [@project, @test_case, @test_result, @test_case_step_result], notice: 'Test case step result was successfully created.' }
         format.json { render :show, status: :created, location: @test_case_step_result }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class TestCaseStepResultsController < ApplicationController
   def update
     respond_to do |format|
       if @test_case_step_result.update(test_case_step_result_params)
-        format.html { redirect_to @test_case_step_result, notice: 'Test case step result was successfully updated.' }
+        format.html { redirect_to [@project, @test_case, @test_result, @test_case_step_result], notice: 'Test case step result was successfully updated.' }
         format.json { render :show, status: :ok, location: @test_case_step_result }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class TestCaseStepResultsController < ApplicationController
   def destroy
     @test_case_step_result.destroy
     respond_to do |format|
-      format.html { redirect_to test_case_step_results_url, notice: 'Test case step result was successfully destroyed.' }
+      format.html { redirect_to [@project, @test_case, @test_result, @test_case_step_result], notice: 'Test case step result was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,5 +73,17 @@ class TestCaseStepResultsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_case_step_result_params
       params.require(:test_case_step_result).permit(:title, :description, :state, :result, :sort)
+    end
+
+    def set_project
+      @project = Project.find(params[:project_id])
+    end
+
+    def set_test_case
+      @test_case = TestCase.find(params[:test_case_id])
+    end
+
+    def set_test_result
+      @test_result = TestResult.find(params[:test_result_id])
     end
 end

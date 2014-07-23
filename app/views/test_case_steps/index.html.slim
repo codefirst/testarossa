@@ -1,4 +1,4 @@
-h1 Listing test_case_steps
+h2 Listing test case steps
 
 table
   thead
@@ -16,10 +16,10 @@ table
         td = test_case_step.title
         td = test_case_step.description
         td = test_case_step.sort
-        td = link_to 'Show', test_case_step
-        td = link_to 'Edit', edit_test_case_step_path(test_case_step)
-        td = link_to 'Destroy', test_case_step, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Show', [@project, @test_case, test_case_step]
+        td = link_to 'Edit', edit_project_test_case_test_case_step_path(@project, @test_case, test_case_step)
+        td = link_to 'Destroy', project_test_case_test_case_steps_path(@project, @test_case), data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Test case step', new_test_case_step_path
+= link_to 'New Test case step', new_project_test_case_test_case_step_path(@project, @test_case)

@@ -35,3 +35,15 @@ footer {
 .glyphicon {
   margin-right: 5px;
 }
+
+.project-list {
+  list-style: none;
+  padding-left: 10px;
+  li {
+    font-size: 1.2em;
+  }
+}
+.side-menu {
+  list-style: none;
+  padding-left: 0;
+}
