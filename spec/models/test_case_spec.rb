@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe TestCase, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe TestCase do
+  let(:testcase) { TestCase.create(title: 'testcase title', description: '- description') }
+
+  context 'markdown description' do
+    subject { testcase.description_to_html }
+    it { is_expected.to eq("\n<ul>\n<li>description</li>\n</ul>\n") }
+  end
 end

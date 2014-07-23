@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe TestResult, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe TestResult do
+  let(:result) { TestResult.create(title: 'result title', description: '- description') }
+
+  context 'markdown description' do
+    subject { result.description_to_html }
+    it { is_expected.to eq("\n<ul>\n<li>description</li>\n</ul>\n") }
+  end
 end

@@ -3,6 +3,7 @@ h2 = @project.name
 .container
   .row
      .col-md-9
+       = @project.description_to_html
      .col-md-3.well
         ul.side-menu
           li = link_to 'Show test cases', project_test_cases_path(@project)

@@ -61,4 +61,4 @@ gem 'settingslogic'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
-
+gem 'maruku'
