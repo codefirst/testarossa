@@ -6,6 +6,7 @@ RSpec.describe TestCasesController, :type => :controller do
     user = User.new(name: 'name', nickname: 'nickname')
     user.save
     sign_in user
+    @project = Project.create(name: 'name')
   end
 
   # This should return the minimal set of attributes required to create a valid
@@ -42,7 +43,7 @@ RSpec.describe TestCasesController, :type => :controller do
 
   describe "GET new" do
     it "assigns a new test_case as @test_case" do
-      get :new, {:project_id => 1}, valid_session
+      get :new, {:project_id => @project.id}, valid_session
       expect(assigns(:test_case)).to be_a_new(TestCase)
     end
   end
