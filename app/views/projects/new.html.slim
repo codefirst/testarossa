@@ -1,5 +1,8 @@
+ol.breadcrumb
+  li= link_to 'Projects', projects_path
+  li.active= link_to 'New project', new_project_path
+
 h2 New project
 
 == render 'form'
 
-= link_to 'Back', projects_path

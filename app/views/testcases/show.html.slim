@@ -1,3 +1,11 @@
+ol.breadcrumb
+  li= link_to 'Projects', projects_path
+  li= link_to @project.name, @project
+  li= link_to 'Plans', project_plans_path(@project)
+  li= link_to @plan.title, [@project, @plan]
+  li= link_to 'Testcases', project_plan_testcases_path(@project, @plan)
+  li.active= link_to "##{@testcase.id} #{@testcase.title}", [@project, @plan, @testcase]
+
 h2= @testcase.title
 
 .row

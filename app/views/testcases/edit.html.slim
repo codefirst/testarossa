@@ -1,8 +1,13 @@
+ol.breadcrumb
+  li= link_to 'Projects', projects_path
+  li= link_to @project.name, @project
+  li= link_to 'Plans', project_plans_path(@project)
+  li= link_to @plan.title, [@project, @plan]
+  li= link_to 'Testcases', project_plan_testcases_path(@project, @plan)
+  li= link_to "##{@testcase.id} #{@testcase.title}", [@project, @plan, @testcase]
+  li.active= link_to 'Editing testcase', edit_project_plan_path(@project, @plan, @testcase)
+
 h2 Editing testcase
 
 == render 'form'
-
-= link_to 'Show', [@project, @plan, @testcase]
-'|
-= link_to 'Back', project_plan_testcases_path(@project, @plan)
 

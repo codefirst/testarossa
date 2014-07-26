@@ -1,8 +1,11 @@
+ol.breadcrumb
+  li= link_to 'Projects', projects_path
+  li= link_to @project.name, @project
+  li= link_to 'Plans', project_plans_path(@project)
+  li= link_to @plan.title, [@project, @plan]
+  li= link_to 'Editing plan', edit_project_plan_path(@project, @plan)
+
 h2 Editing plan
 
 == render 'form'
-
-= link_to 'Show', [@project, @plan]
-'|
-= link_to 'Back', project_plans_path(@project)
 

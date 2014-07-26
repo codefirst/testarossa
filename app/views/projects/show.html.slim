@@ -1,3 +1,7 @@
+ol.breadcrumb
+  li= link_to 'Projects', projects_path
+  li.active= link_to @project.name, project_path(@project)
+
 h2 = @project.name
 
 .container
