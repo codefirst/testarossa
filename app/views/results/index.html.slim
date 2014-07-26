@@ -1,23 +1,12 @@
 h2 Listing results
 
-table
-  thead
-    tr
-      th Title
-      th Description
-      th
-      th
-      th
+.row
+  .col-md-9
+    ul
+      - @results.each do |result|
+        li= link_to result.title, [@project, @plan, result]
+  .col-md-3.well
+    ul.side-menu
+      li= icon_link_to 'Back to plan', project_plan_path(@project, @plan), :'arrow-up'
+      li= icon_link_to 'New result', new_project_plan_result_path(@project, @plan), :plus
 
-  tbody
-    - @results.each do |result|
-      tr
-        td = result.title
-        td = result.description
-        td = link_to 'Show', [@project, @plan, result]
-        td = link_to 'Edit', edit_project_plan_result_path(@project, @plan, result)
-        td = link_to 'Destroy', [@project, @plan, result], data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New result', new_project_plan_result_path(@project, @plan)

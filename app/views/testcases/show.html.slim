@@ -1,13 +1,12 @@
-p
-  strong Title:
-  = @testcase.title
-p
-  strong Description:
-  = @testcase.description
-p
-  strong Sort:
-  = @testcase.sort
+h2= @testcase.title
 
-= link_to 'Edit', edit_project_plan_testcase_path(@project, @plan, @testcase)
-'|
+.row
+  .col-md-9
+    p= @testcase.description_to_html
+  .col-md-3.well
+    ul.side-menu
+      li= link_to 'Back to testcases', project_plan_testcases_path(@project, @plan)
+      li= link_to 'Edit this testcase', edit_project_plan_testcase_path(@project, @plan, @testcase)
+      li= link_to 'Destroy this testcase', project_plan_testcase_path(@project, @plan, @testcase), data: {:confirm => 'Are you sure?'}, :method => :delete
+
 = link_to 'Back', project_plan_testcases_path(@project, @plan)

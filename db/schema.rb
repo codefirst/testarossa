@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20140720100152) do
     t.datetime "updated_at"
   end
 
+  add_index "plans", ["project_id"], name: "index_plans_on_project_id"
+
   create_table "projects", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -36,6 +38,8 @@ ActiveRecord::Schema.define(version: 20140720100152) do
     t.datetime "updated_at"
   end
 
+  add_index "results", ["plan_id"], name: "index_results_on_plan_id"
+
   create_table "testcases", force: true do |t|
     t.integer  "plan_id"
     t.string   "title"
@@ -44,6 +48,8 @@ ActiveRecord::Schema.define(version: 20140720100152) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "testcases", ["plan_id"], name: "index_testcases_on_plan_id"
 
   create_table "traces", force: true do |t|
     t.integer  "result_id"
@@ -56,6 +62,9 @@ ActiveRecord::Schema.define(version: 20140720100152) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "traces", ["result_id"], name: "index_traces_on_result_id"
+  add_index "traces", ["testcase_id"], name: "index_traces_on_testcase_id"
 
   create_table "user_projects", force: true do |t|
     t.integer  "user_id"

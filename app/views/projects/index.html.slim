@@ -1,12 +1,12 @@
 h2 Projects
 
 .row
-   .col-md-9
-      ul.project-list
-        - @projects.each do |project|
-          li = link_to project.name, project
+  .col-md-9
+    ul.project-list
+      - @projects.each do |project|
+        li = link_to project.name, project
 
-   .col-md-3.well
-      ul.side-menu
-        li= icon_link_to 'New Project', new_project_path, :plus
+  .col-md-3.well
+    ul.side-menu
+      li= icon_link_to 'New Project', new_project_path, :plus
 

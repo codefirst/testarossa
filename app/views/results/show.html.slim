@@ -1,10 +1,12 @@
-p
-  strong Title:
-  = @result.title
-p
-  strong Description:
-  = @result.description
+h2= @result.title
 
-= link_to 'Edit', edit_project_plan_result_path(@project, @plan, @result)
-'|
+.container
+  .row
+     .col-md-9
+       = @result.description
+     .col-md-3.well
+        ul.side-menu
+          li= link_to 'Edit this result', edit_project_plan_result_path(@project, @plan, @result)
+          li= link_to 'Destroy this result', [@project, @plan, @result], data: {:confirm => 'Are you sure?'}, :method => :delete
+
 = link_to 'Back', project_plan_results_path(@project, @plan)

@@ -4,11 +4,11 @@ h2 = @plan.title + ' / ' + @project.name
   .row
      .col-md-9
         p
-          = @plan.description
+          = @plan.description_to_html
      .col-md-3.well
         ul.side-menu
           li = icon_link_to 'Back to plan', project_plans_path(@project), :'arrow-up'
           li = icon_link_to 'Show testcases', project_plan_testcases_path(@project, @plan), :'arrow-down'
           li = icon_link_to 'Show test results', project_plan_results_path(@project, @plan), :'arrow-down'
-          li = icon_link_to 'Edit test case', edit_project_plan_path(@project, @plan), :pencil
+          li = icon_link_to 'Edit test plan', edit_project_plan_path(@project, @plan), :pencil
 
