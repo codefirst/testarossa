@@ -1,0 +1,10 @@
+p
+  strong Title:
+  = @result.title
+p
+  strong Description:
+  = @result.description
+
+= link_to 'Edit', edit_project_plan_result_path(@project, @plan, @result)
+'|
+= link_to 'Back', project_plan_results_path(@project, @plan)

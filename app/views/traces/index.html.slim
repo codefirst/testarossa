@@ -1,0 +1,29 @@
+h2 Listing trace
+
+table
+  thead
+    tr
+      th Title
+      th Description
+      th State
+      th Judgement
+      th Sort
+      th
+      th
+      th
+
+  tbody
+    - @traces.each do |trace|
+      tr
+        td = trace.title
+        td = trace.description
+        td = trace.state
+        td = trace.judgement
+        td = trace.sort
+        td = link_to 'Show', [@project, @plan, @result, trace]
+        td = link_to 'Edit', edit_project_plan_result_trace_path(@project, @plan, @result, trace)
+        td = link_to 'Destroy', [@project, @plan, @result, trace], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Trace', new_project_plan_result_trace_path(@project, @plan, @result)

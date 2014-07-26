@@ -1,0 +1,19 @@
+p
+  strong Title:
+  = @trace.title
+p
+  strong Description:
+  = @trace.description
+p
+  strong State:
+  = @trace.state
+p
+  strong Judgement:
+  = @trace.judgement
+p
+  strong Sort:
+  = @trace.sort
+
+= link_to 'Edit', edit_project_plan_result_trace_path(@project, @plan, @result, @trace)
+'|
+= link_to 'Back', project_plan_result_traces_path(@project, @plan, @result)

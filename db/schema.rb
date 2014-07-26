@@ -13,35 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140720100152) do
 
-  create_table "projects", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "test_case_step_results", force: true do |t|
-    t.integer  "test_result_id"
-    t.integer  "test_case_step_id"
-    t.string   "title"
-    t.text     "description"
-    t.integer  "state"
-    t.integer  "result"
-    t.integer  "sort"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "test_case_steps", force: true do |t|
-    t.integer  "test_case_id"
-    t.string   "title"
-    t.text     "description"
-    t.integer  "sort"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "test_cases", force: true do |t|
+  create_table "plans", force: true do |t|
     t.integer  "project_id"
     t.string   "title"
     t.text     "description"
@@ -49,10 +21,38 @@ ActiveRecord::Schema.define(version: 20140720100152) do
     t.datetime "updated_at"
   end
 
-  create_table "test_results", force: true do |t|
-    t.integer  "test_case_id"
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "results", force: true do |t|
+    t.integer  "plan_id"
     t.string   "title"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "testcases", force: true do |t|
+    t.integer  "plan_id"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "sort"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "traces", force: true do |t|
+    t.integer  "result_id"
+    t.integer  "testcase_id"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "state"
+    t.integer  "judgement"
+    t.integer  "sort"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

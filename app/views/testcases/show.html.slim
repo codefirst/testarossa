@@ -1,0 +1,13 @@
+p
+  strong Title:
+  = @testcase.title
+p
+  strong Description:
+  = @testcase.description
+p
+  strong Sort:
+  = @testcase.sort
+
+= link_to 'Edit', edit_project_plan_testcase_path(@project, @plan, @testcase)
+'|
+= link_to 'Back', project_plan_testcases_path(@project, @plan)

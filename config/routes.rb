@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   resources :projects do
-    resources :test_cases, path: 'tests' do
-      resources :test_case_steps, path: 'steps'
-      resources :test_results, path: 'results' do
-        resources :test_case_step_results, path: 'steps'
+    resources :plans do
+      resources :testcases
+      resources :results do
+        resources :traces
       end
     end
   end

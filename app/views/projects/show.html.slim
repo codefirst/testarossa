@@ -6,7 +6,7 @@ h2 = @project.name
        = @project.description_to_html
      .col-md-3.well
         ul.side-menu
-          li = link_to 'Show test cases', project_test_cases_path(@project)
+          li = link_to 'Show test cases', project_plans_path(@project)
           li = link_to 'Edit project', edit_project_path(@project)
           li = link_to 'Destroy project', @project, data: {:confirm => 'Are you sure?'}, :method => :delete
 

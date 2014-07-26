@@ -1,0 +1,25 @@
+h2 Listing testcase
+
+table
+  thead
+    tr
+      th Title
+      th Description
+      th Sort
+      th
+      th
+      th
+
+  tbody
+    - @testcases.each do |testcase|
+      tr
+        td = testcase.title
+        td = testcase.description
+        td = testcase.sort
+        td = link_to 'Show', [@project, @plan, testcase]
+        td = link_to 'Edit', edit_project_plan_testcase_path(@project, @plan, testcase)
+        td = link_to 'Destroy', project_plan_testcase_path(@project, @plan, testcase), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Testcase', new_project_plan_testcase_path(@project, @plan)
