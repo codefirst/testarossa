@@ -7,5 +7,6 @@ class CreateTestcases < ActiveRecord::Migration
       t.integer :sort
       t.timestamps
     end
+    add_index :testcases, :plan_id
   end
 end

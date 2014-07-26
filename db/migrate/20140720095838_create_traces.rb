@@ -11,5 +11,7 @@ class CreateTraces < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :traces, :result_id
+    add_index :traces, :testcase_id
   end
 end

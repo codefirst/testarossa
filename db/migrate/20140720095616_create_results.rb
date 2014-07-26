@@ -6,5 +6,6 @@ class CreateResults < ActiveRecord::Migration
       t.text :description
       t.timestamps
     end
+    add_index :results, :plan_id
   end
 end

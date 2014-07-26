@@ -6,5 +6,6 @@ class CreatePlans < ActiveRecord::Migration
       t.text :description
       t.timestamps
     end
+    add_index :plans, :project_id
   end
 end
